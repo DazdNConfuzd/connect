@@ -18,13 +18,15 @@
 	$result = mysql_query($query, $dbconn);
 
 	echo "<table border=1>";
+
 	while($row = mysql_fetch_row($result)) {
 		echo "<tr>";
 		for($i = 0; $i < mysql_num_fields($result); $i++)
 		{
-			echo "<td>" . $row[$i] . " " .  "</td>";
+			echo "<td>" . $row[$i] . " " . "</td>";
 		}
 		echo "</tr>";
+		
 	}
 
 	echo "</table>";
