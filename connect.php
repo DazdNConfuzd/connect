@@ -9,7 +9,26 @@
 		echo 'Could not user database ' . DB_NAME . '\n';
 		echo mysql_error() . '\n';
 		exit;
+
 	}
 
-	echo 'Connected to database' . DB_NAME;
+	echo 'Connected to database ' . DB_NAME;
+
+	$query = "SELECT * FROM wine;";
+	$result = mysql_query($query, $dbconn);
+
+	echo "<table border=1>";
+	while($row = mysql_fetch_row($result)) {
+		echo "<tr>";
+		for($i = 0; $i < mysql_num_fields($result); $i++)
+		{
+			echo "<td>" . $row[$i] . " " .  "</td>";
+		}
+		echo "</tr>";
+	}
+
+	echo "</table>";
+
+	mysql_close($dbconn);
+
 ?>
